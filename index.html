@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lemmings Classic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="bar">
+      <div class="brand">Lemmings</div>
+      <div class="controls">
+        <label class="row">
+          Level
+          <select id="level-select"></select>
+        </label>
+        <button id="start-btn">Start</button>
+        <button id="pause-btn">Pause</button>
+        <button id="restart-btn">Restart</button>
+      </div>
+      <div class="status" id="status-line"></div>
+    </header>
+
+    <main class="layout">
+      <section class="canvas-wrap">
+        <canvas id="game" width="960" height="540"></canvas>
+        <canvas id="terrain" width="960" height="540" aria-hidden="true"></canvas>
+      </section>
+
+      <section class="panel">
+        <div class="panel-group">
+          <h2>Skills</h2>
+          <div class="skill-buttons" id="skill-buttons"></div>
+        </div>
+
+        <div class="panel-group">
+          <h2>Level Data</h2>
+          <div class="info-line" id="lemming-counts"></div>
+          <div class="info-line" id="timer-line"></div>
+          <div class="info-line" id="goal-line"></div>
+        </div>
+
+        <div class="panel-group">
+          <h2>Add Level</h2>
+          <label class="row">Terrain PNG <input type="file" id="upload-terrain" accept="image/png,image/jpeg"></label>
+          <label class="row">Width <input id="custom-width" type="number" value="960"></label>
+          <label class="row">Height <input id="custom-height" type="number" value="540"></label>
+          <label class="row">Spawn x,y <input id="custom-spawn" value="50,60"></label>
+          <label class="row">Exit x,y <input id="custom-exit" value="900,480"></label>
+          <label class="row">Save %, Time (s) <input id="custom-goal" value="50,300"></label>
+          <button id="add-custom-level">Use Uploaded Level</button>
+          <p class="small">Drop a solid-mask PNG (opaque = terrain). Spawn/exits use canvas pixels.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="levels.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
